@@ -6,13 +6,8 @@
 #include <cmath>
 #include <iostream>
 #include <vector>
-
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
-#define STB_IMAGE_WRITE_IMPLEMENTATION
 #include <algorithm>
 
-#include "stb_image_write.h"
 
 std::vector<float> GaussianBlur::createKernel(int size, double sigma) {
     std::vector<float> kernel(size * size);
@@ -61,27 +56,13 @@ void GaussianBlur::applyKernel(const unsigned char* input,
     }
 }
 
-bool GaussianBlur::processImage(const std::string& inputPath,
-                                const std::string& outputPath,
-                                const Params& params) {
-    int width, height, channels;
-    unsigned char* input = stbi_load(inputPath.c_str(), &width, &height, &channels, 0);
-    if (!input) {
-        std::cerr << "Error: Could not load image " << inputPath << "\n";
-        return false;
-    }
-
-    std::vector<unsigned char> output(width * height * channels);
-
+bool GaussianBlur::processTile(const unsigned char* input,
+                               unsigned char* output,
+                               int width,
+                               int height,
+                               int channels,
+                               const Params& params) {
     auto kernel = createKernel(params.kernelSize, params.sigma);
-    applyKernel(input, output.data(), width, height, channels, kernel);
-
-    if (!stbi_write_png(outputPath.c_str(), width, height, channels, output.data(), width * channels)) {
-        std::cerr << "Error: Could not save image " << outputPath << "\n";
-        stbi_image_free(input);
-        return false;
-    }
-
-    stbi_image_free(input);
+    applyKernel(input, output, width, height, channels, kernel);
     return true;
 }

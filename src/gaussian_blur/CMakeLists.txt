@@ -3,6 +3,4 @@ set(LIBRARY_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/gaussian_blur.h")
 add_library(${GAUSSIAN_BLUR_LIBRARY} STATIC ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
 
 target_include_directories(${GAUSSIAN_BLUR_LIBRARY} PUBLIC
-        "${CMAKE_CURRENT_SOURCE_DIR}"
-        "${CMAKE_SOURCE_DIR}/external/stb"
-)
+        "${CMAKE_CURRENT_SOURCE_DIR}")
