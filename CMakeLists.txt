@@ -6,11 +6,15 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(GAUSSIAN_BLUR_LIBRARY LibGaussianBlur)
-set(IPC_MANAGER_LIBRARY IpcShmManager)
-set(IMAGE_IO_LIBRARY ImageIo)
-set(EXECUTABLE_NAME Executable)
+set(EXECUTABLE_NAME_NOIPC GausssianBlur)
+set(EXECUTABLE_NAME_IPC GausssianBlurIPC)
+
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/")
+
+set(GAUSSIAN_BLUR_LIBRARY LibGaussianBlur)
+set(IMAGE_IO_LIBRARY ImageIo)
+set(IPC_MANAGER_LIBRARY IpcShmManager)
+set(TILE_MANAGER_LIBRARY LibTileManager)
 
 # Options
 option(ENABLE_WARNINGS "Enable compiler warnings" ON)

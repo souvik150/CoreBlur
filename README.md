@@ -21,5 +21,15 @@ Instructions to build :-
 Instructions to run :- 
 
 `
-./build/app/Executable old.jpeg new.jpeg
+./build/app/{executable_name} old.jpeg new.jpeg
 `
+
+Results :- 
+
+```
+❯ ./build/app/GausssianBlurIPC old.jpeg new.jpeg 
+Parallel blur completed in 866.377 ms
+
+❯ ./build/app/GausssianBlur old.jpeg new.jpeg 
+Gaussian blur completed in 2183.08 ms
+```

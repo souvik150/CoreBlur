@@ -3,12 +3,11 @@
 //
 
 #include "image_io.h"
+#include <string>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
-#include <string>
-
 #include "stb_image_write.h"
 
 unsigned char* load_image_data(const std::string& path, int& width, int& height, int& channels) {
