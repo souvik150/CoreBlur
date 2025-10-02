@@ -39,8 +39,10 @@ private:
     CoreStrategy core_strategy;
 
     static void pinProcessToCore(int core_id);
+
     static std::vector<int> getPCores();
-    std::vector<int> getECores();
+
+    static std::vector<int> getECores();
 };
 
 #endif //MYPROJECT_IPC_MANAGER_H

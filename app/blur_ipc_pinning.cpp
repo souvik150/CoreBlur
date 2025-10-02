@@ -21,7 +21,7 @@ int main(const int argc, char** argv) {
 
     std::string inputPath = argv[1];
     std::string outputPath = argv[2];
-    int num_tiles = (argc > 3) ? std::stoi(argv[3]) : 10;
+    int num_tiles = (argc > 3) ? std::stoi(argv[3]) : 4;
     int kernel = (argc > 4) ? std::stoi(argv[4]) : 5;
     double sigma = (argc > 5) ? std::stod(argv[5]) : 1.5;
 

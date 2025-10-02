@@ -132,18 +132,5 @@ void IPCManager::pinProcessToCore(int core_id) {
     }
 }
 
-std::vector<int> IPCManager::getPCores() {
-    int total = sysconf(_SC_NPROCESSORS_ONLN);
-    int half = total / 2;
-    std::vector<int> cores;
-    for (int i = 0; i < half; i++) cores.push_back(i);
-    return cores;
-}
-
-std::vector<int> IPCManager::getECores() {
-    int total = sysconf(_SC_NPROCESSORS_ONLN);
-    int half = total / 2;
-    std::vector<int> cores;
-    for (int i = half; i < total; i++) cores.push_back(i);
-    return cores;
-}
+std::vector<int> IPCManager::getPCores() { return {0,1,2,3}; }
+std::vector<int> IPCManager::getECores() { return {4,5,6,7,8,9,10,11}; }
