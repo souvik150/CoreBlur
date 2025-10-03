@@ -22,7 +22,7 @@ public:
     IPCManager(int num_workers,
                const std::string& sem_name,
                unsigned char* shm_ptr,
-               CoreStrategy strategy = CoreStrategy::P_ONLY);
+               CoreStrategy strategy = CoreStrategy::MIXED);
 
     ~IPCManager();
 

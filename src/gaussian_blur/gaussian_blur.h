@@ -22,7 +22,7 @@ public:
                      const Params& params);
 
 private:
-    std::vector<float> createKernel(int size, double sigma);
+    static std::vector<float> createKernel(int size, double sigma);
     static void applyKernel(const unsigned char* input,
                      unsigned char* output,
                      int width,

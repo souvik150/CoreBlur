@@ -99,7 +99,6 @@ void IPCManager::launchWorkers(const std::vector<Tile>& tiles,
         else if (pid > 0) { // parent
             workers.push_back(pid);
 
-            // 🔵 Log parent scheduling decision
             std::cout << "[Parent " << getpid() << "] "
                       << "Spawned worker " << pid
                       << " for tile " << i
